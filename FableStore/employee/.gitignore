@@ -5,6 +5,13 @@
 /.pnp
 .pnp.js
 
+../.vscode
+../!
+/src/components/TestPage.jsx
+/src/styles/TestPage.module.css
+/src/components/store/CRUDSlice.js
+
+
 # testing
 /coverage
 

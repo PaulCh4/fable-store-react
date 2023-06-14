@@ -1,0 +1,29 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "davuud", 
+            "email": "dvd@gmail.com"
+        },
+        {
+            "id": 2,
+            "name": "malia", 
+            "email": "mmmmm@gmail.com"
+        },
+        {
+            "id": 3,
+            "name": "bread", 
+            "email": "dva@gmail.com"
+        },
+        {
+            "id": 4,
+            "name": "breadAA", 
+            "email": "dva@gmail.com"
+        },
+        {
+            "id": 6,
+            "name": "breadBB", 
+            "email": "dva@gmail.com"
+        }
+    ]
+}

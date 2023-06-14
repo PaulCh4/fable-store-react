@@ -1,0 +1,37 @@
+.title {
+    font-size: 3.5em;
+    margin: 20px 0 10px 0;
+}
+.collection {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropbtn, i {
+    color: rgb(136, 136, 136);
+}
+    .dropdown {
+        display: none;
+    }
+
+form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 20px
+}
+    .logo {
+        background-color: rgb(248, 246, 237);
+        width: 100%;
+        min-width: 100px;
+    }
+    .cart {
+        flex-basis: 32%;
+    }
