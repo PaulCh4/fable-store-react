@@ -5,7 +5,8 @@ body {
     sans-serif; */
 
   font-family: 'Alegreya Sans', sans-serif;
-  background-color: rgb(248, 233, 214);
+  /* background-color: rgb(248, 233, 214); */
+  background-color: rgb(255, 255, 255);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,3 +16,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+

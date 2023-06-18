@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import styles from '../styles/Home.module.css';
-import LOGO from "../img/logo_fable.svg"
-import PEOPLE from "../img/people.svg"
+import styles from '../../styles/Home.module.css';
+import LOGO from "../../img/logo_fable.svg"
+import PEOPLE from "../../img/people.svg"
 
 const Home = () => {
     return <div className={styles.container} >

@@ -3,7 +3,7 @@ import crudReducer from './CRUDSlice'
 
 export default configureStore({
     reducer: {
-        todos: todoReducer,
+        todos: crudReducer,
         // -- Slices --
         // user: userReducer
         // user: userReducer

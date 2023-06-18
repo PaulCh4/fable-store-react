@@ -1,89 +1,81 @@
 import React from "react";
+
+import styles from '../../styles/Header.module.css';
+import LOGO from "../../img/logo_fable.svg"
+
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import styles from '../styles/Header.module.css';
-import LOGO from "../img/logo_fable.svg"
 
 const Header = () => {
+    const setActive = ({isActive})=>(isActive? styles.active : "")
+
     return(
         <header className={styles.header}>
             <section className={styles.section}>
-                <Link to={"/"}>
+                <NavLink to={"/"} className={setActive}>
                     <img src={LOGO} className={styles.logo} alt="Stuff" />
-                </Link>
+                </NavLink>
             </section>
 
 
             <section className={styles.section}>
                 <div>
-                    <Link to={"/constructor"}>
+                    <NavLink to={"/constructor"} className={setActive}>
                         КОНСТРУКТОР
-                    </Link>
+                    </NavLink>
                 </div>      
                 <div className={styles.dropdown}>
-                    <Link to={"/collection"} className={styles.dropbtn}>
+                    <NavLink to={"/collection"} className={setActive}>
                         КОЛЛЕКЦИЯ
                         <i className='bx bx-caret-down' ></i>
-                    </Link>
+                    </NavLink>
                     <div className={styles.dropdown_content}>
                         <div className={styles.dropdown_content_column}>
                             <p>КОЛЛЕКЦИИ</p>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <Link to={"/collection/?collection=Fable of Klassik"} className={setActive}>
+                                KLASSIK
+                            </Link>
+                            <Link to={"/collection/?collection=Fable of colors"} className={setActive}>
+                                colors
+                            </Link>
                         </div>
                         <div className={styles.dropdown_content_column}>
                             <p>ОДЕЖДА</p>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <br />
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <br />
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                         
+                            <Link to={"/collection/?category=Shorts"} className={setActive}>
+                                Shorts
+                            </Link>
+                            <Link to={"/collection/?category=Jacket"} className={setActive}>
+                                Jacket
+                            </Link>
+                            <Link to={"/collection/?category=Jeans"} className={setActive}>
+                                Jeans
+                            </Link>
                         </div>
                         <div className={styles.dropdown_content_column}>
                             <p>АКСЕССУАРЫ</p>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <br />
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            {/* <a href="#">Link 1</a>
+                            <a href="#">Link 2</a> */}
                         </div>
                         
                     </div>
                 </div>
 
                 <div>
-                    <Link to={"/sale"}>
+                    <NavLink to={"/sale"} className={setActive}>
                         SALE
-                    </Link>
+                    </NavLink>
                 </div>
             </section>
 
 
             <section className={styles.section}>
-                <Link to={"/cart"}>
+                <NavLink to={"/cart"} className={setActive}>
                     КОРЗИНА
-                </Link>
-                <Link to={"/login"}>
+                </NavLink>
+                <NavLink to={"/login"} className={setActive}>
                     АККАУНТ
-                </Link>
+                </NavLink>
             </section>
         </header>
     );

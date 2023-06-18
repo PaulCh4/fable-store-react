@@ -1,4 +1,167 @@
-{
+{   
+    "collection": [
+      {
+        "id": "0",
+        "name": "Fable of Klassik"
+      },
+      {
+        "id": "1",
+        "name": "Fable of colors"
+      }
+    ],
+    "category": [
+      {
+        "id": "0",
+        "name": "Jacket"
+      },
+      {
+        "id": "1",
+        "name": "Jeans"
+      },
+      {
+        "id": "2",
+        "name": "Shorts"
+      }
+    ],
+    "product": [
+      {
+        "id": "0",
+        "name": "Product1",
+        "price": 105,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "0",
+        "category": "0",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-12-01"
+      },
+      {
+        "id": "1",
+        "name": "Product2",
+        "price": 10,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "0",
+        "category": "0",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-12-02"
+      },
+      {
+        "id": "2",
+        "name": "Product3",
+        "price": 188,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "0",
+        "category": "0",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-11-22"
+      },
+      {
+        "id": "3",
+        "name": "Product4",
+        "price": 90,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "0",
+        "category": "0",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-11-12"
+      },
+      {
+        "id": "4",
+        "name": "Product5",
+        "price": 15,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "0",
+        "category": "1",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-12-01"
+      },
+      {
+        "id": "5",
+        "name": "Product6",
+        "price": 1005,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "0",
+        "category": "2",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-11-02"
+      },
+      {
+        "id": "6",
+        "name": "Product7",
+        "price": 112,
+  
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "1",
+        "category": "2",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-12-02"
+      },
+      {
+        "id": "7",
+        "name": "Product8",
+        "price": 10,
+        "details": "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "collection": "1",
+        "category": "2",
+        "image": "/img/item1.png",
+        "images": [
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png",
+          "/img/item_big.png"
+        ],
+        "registerDate": "2022-12-01"
+      }
+    ],
     "users": [
         {
             "id": 1,
@@ -27,3 +190,7 @@
         }
     ]
 }
+
+
+
+
