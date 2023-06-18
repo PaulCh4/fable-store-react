@@ -12,9 +12,11 @@ import { Link } from "react-router-dom";
 
 
 const Collection = () => {
+
     const [collections, setCollections] = useState([]) 
     const [categories, setCategories] = useState([]) 
     const [products, setProducts] = useState([]) 
+
 
     useEffect(()=>{
         axios.get(`http://localhost:3001/collection`).then(res => setCollections(res.data)).catch(
@@ -27,68 +29,103 @@ const Collection = () => {
             err => console.log(err)
         )  
     },[])
-
-    // console.log('<-')
-    // console.log(collections)
+     // console.log(collections)
     // console.log(categories)
     // console.log(products)
-    // console.log('->')
+
 
     const [searchParams, setSearchParams] = useSearchParams();
     const collectionQuery = searchParams.get('collection') || ''
     const categoryQuery = searchParams.get('category') || ''
 
+    // ----- Filter -----
+    const [sortType, setSortType] = useState('date')
+
+    const handleSortChange = (e) => {
+        setSortType(e.target.value)
+        console.log(sortType)
+    }
+
+    // ----- Category State -----
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+    };
+
+    // const sortedProducts = products
+    //     .filter((product) => product.category === catQ.id)
+    //     .sort((a, b) => {
+    //         if (sortType === 'date') {
+    //         return new Date(b.dateAdded) - new Date(a.dateAdded);
+    //         } else if (sortType === 'price') {
+    //         return a.price - b.price;
+    //         }
+    // });
+
+
     if(categoryQuery === ''){
-        return <div>
-        {/* <CollectionItem /> */}
-
+        return <div> 
+            {/* <CollectionItem /> */}
         {
-            collections.filter(
-                colletion => colletion.name.includes(collectionQuery)
-              ).map(collection => (
-            <div key={collection.id}>
-                {/* <CollectionItem id={collection.id} name={collection.name} /> */}
-                <p className={styles.title}>{collection.name}</p>
-                
-                {categories.filter(
-                    category => products.some(product => product.category === category.id && product.collection === collection.id)
-                    ).map(category => (
+            collections
+                .filter(colletion => colletion.name.includes(collectionQuery))
+                .map(collection => (<div key={collection.id}>
 
+                {/* --- CategoryList --- */}
+                <p className={styles.title}>{collection.name}</p> 
+                    {/* <CollectionItem id={collection.id} name={collection.name} /> */}
+                
+                {/* --- CategoryList --- */}
+                {categories
+                    .filter(category => products.some(product => product.category === category.id && product.collection === collection.id))
+                    .map((category) => {
+                        const filteredProducts = products
+                          .filter(
+                            (product) =>
+                              product.category === category.id &&
+                              product.collection === collection.id &&
+                              (!selectedCategory || product.category === selectedCategory)
+                          )
+                          .sort((a, b) => {
+                            if (sortType === "date") {
+                              return new Date(b.dateAdded) - new Date(a.dateAdded);
+                            } else if (sortType === "price") {
+                              return a.price - b.price;
+                            }
+                          });
+
+                    return (
                         <section key={category.id}>
 
-                            <div className={styles.collection}>
+                            {/* --- CategoryName&Sort Panel --- */}
+                            <div className={styles.titleContainer}>
                                 <p className={styles.type}>{category.name}</p>
+                                {/* --- Sort Button --- */}
                                 <div className={styles.btnSort}>
-                                    <p>Сортировать</p>
-                                    <button className={styles.dropbtn}>
-                                        По Цене
-                                        <i class='bx bx-chevron-down' ></i>
-                                    </button>
+                                    <label htmlFor="sort-select">Сортировать </label>
+                                    <select id="sort-select" className={styles.sortSelect}
+                                            value={sortType} onChange={handleSortChange}>
+                                        <option value="date">По новизне</option>
+                                        <option value="price">По цене</option>
+                                    </select>
                                 </div>
                             </div>
 
+                            {/* --- CategoryItem List --- */}
                             <div className={styles.container}>
-                                {products.filter(product => product.category === category.id && product.collection === collection.id).map(product => (
-                                    <div key={product.id} className={styles.cart}>
-
-
-                                        <Link to={`/product/${product.id}`}>
-                                            <img src={CART_IMG} className={styles.logo} alt="Stuff" />
-                                        </Link>
-                                        <p>{product.name}</p>
-                                        <p>{product.price} $</p>
-
-                                    </div>
-                                ))}
+                            {filteredProducts.map((product) => (
+                                <div key={product.id} className={styles.cart}>
+                                {/* --- Products(CategoryItem) --- */}
+                                <Link to={`/product/${product.id}`}>
+                                    <img src={CART_IMG} className={styles.logo} alt="Stuff" />
+                                </Link>
+                                <p>{product.name}</p>
+                                <p>{product.price} $</p>
+                                </div>
+                            ))}
                             </div>
-
-
-                            
-                        </section>
-
-                    ))}
-
-
+                        </section>)})}
             </div>))
         }
     </div>
@@ -100,37 +137,42 @@ const Collection = () => {
         
 
         return <div>
-
-                <div className={styles.collection}>
+                {/* --- CategoryName&Sort Panel --- */}
+                <div className={styles.titleContainer}>
                     <p className={styles.type}>{catQ.name}</p>
+
+                    {/* --- Sort Button --- */}
                     <div className={styles.btnSort}>
-                        <p>Сортировать</p>
-                        <button className={styles.dropbtn}>
-                            По Цене
-                            <i class='bx bx-chevron-down' ></i>
-                        </button>
+                        <label htmlFor="sort-select">Сортировать </label>
+                        <select id="sort-select" className={styles.sortSelect}
+                                value={sortType} onChange={handleSortChange}>
+                            <option value="date">По новизне</option>
+                            <option value="price">По цене</option>
+                        </select>
                     </div>
                 </div>
+
+                {/* --- ProductItem List --- */}
                 <div className={styles.container}>
-                {products.filter(
-                                product =>  product.category === catQ.id
-                              ).map((product) => {
-                                return <div key={product.id}>
+                    {products
+                        .filter(product =>  product.category === catQ.id)
+                        .sort((a, b) => {
+                            if (sortType === 'date') {
+                            return new Date(b.dateAdded) - new Date(a.dateAdded);
+                            } else if (sortType === 'price') {
+                            return a.price - b.price;
+                            }})
+                        .map((product) => { return <div key={product.id}>
 
-
-                                    
-                                           <div key={product.id} className={styles.cart}>
-
-
-                                                <Link to={`/product/${product.id}`}>
-                                                    <img src={CART_IMG} className={styles.logo} alt="Stuff" />
-                                                </Link>
-                                                <p>{product.name}</p>
-                                                <p>{product.price} $</p>
-
-                                            </div>
-                                    </div>
-                              })}
+                                {/* --- ProductItem --- */}
+                                <div key={product.id} className={styles.cart}>
+                                    <Link to={`/product/${product.id}`}>
+                                        <img src={CART_IMG} className={styles.logo} alt="Stuff" />
+                                    </Link>
+                                    <p>{product.name}</p>
+                                    <p>{product.price} $</p>
+                                </div>
+                            </div>})}
                 </div>
         </div>
     }
@@ -138,62 +180,3 @@ const Collection = () => {
 }
 
 export default Collection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* <section>
-            <p className={styles.title}>FABLE OF KLASSIK</p>
-
-            <div className={styles.collection}>
-               <p className={styles.type}>Пиджаки</p>
-                <div className={styles.btnSort}>
-                    <p>Сортировать</p>
-                    <button className={styles.dropbtn}>
-                        По Цене
-                        <i class='bx bx-chevron-down' ></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div className={styles.container}>
-                <div className={styles.cart}>
-                    <Link to={"#"}>
-                        <img src={CART_IMG} className={styles.logo} alt="Stuff" />
-                    </Link>
-                    <p>name</p>
-                    <p>price</p>
-                </div>
-                <div className={styles.cart}>
-                    <Link to={"#"}>
-                        <img src={CART_IMG} className={styles.logo} alt="Stuff" />
-                    </Link>
-                    <p>name</p>
-                    <p>price</p>
-                </div>
-                <div className={styles.cart}>
-                    <Link to={"#"}>
-                        <img src={CART_IMG} className={styles.logo} alt="Stuff" />
-                    </Link>
-                    <p>name</p>
-                    <p>price</p>
-                </div>
-                <div className={styles.cart}>
-                    <Link to={"#"}>
-                        <img src={CART_IMG} className={styles.logo} alt="Stuff" />
-                    </Link>
-                    <p>name</p>
-                    <p>price</p>
-                </div>
-            </div>
-        </section>         */}

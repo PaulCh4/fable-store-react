@@ -4,49 +4,33 @@
 
     text-transform: uppercase;
 }
-.collection {
-    font-size: 1.5em;
-    display: flex;
-    justify-content: space-between;
-}
-
-.dropbtn, .dropbtn i {
-    color: rgb(116, 116, 116);
-}
-    .dropdown {
-        display: none;
+    .titleContainer {
+        font-size: 1.5em;
+        display: flex;
+        justify-content: space-between;
     }
+
 
 .btnSort {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
+    border: none;
 }
+    .sortSelect {
+        border: none;
+        font-family: 'Alegreya Sans', sans-serif;
+        font-size: 0.98em;
+        color: rgb(116, 116, 116);
+    }  
+    /* ----- Not Work in Edge? ----- */
+    /* .sortSelect option[selected] {
+        font-weight: bold;
+        color: blue;
+    } */
+
 
 .container {
-    /* flex-wrap: wrap;
-    align-self: start;
-    justify-content: center; 
-    text-align: center; */
-
-    /* display: flex;
-    flex-wrap: wrap; 
-    flex-direction: row;
-    justify-content: flex-start;
-
-    width: 100%; */
-
-    
-
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; */
-
-    /* display: grid;
-    grid-column-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-    justify-items: start; */
-
     display: grid;
     grid-template-columns: repeat(auto-fit, calc(25% - 15px));
     grid-gap: 20px;
@@ -58,10 +42,5 @@
         width: 100%;
  
     }
-    .cart {
-        /* flex: 1 1 300px;
-        max-width: 300px;
-        margin: 0 10px 10px 0;
-         */
-    }
+
 
