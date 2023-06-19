@@ -1,31 +1,40 @@
 import React from 'react'
 
-const CategoryList = () => {
-    const catQ = categories.filter(category => category.name.includes(categoryQuery))[0]
-    console.log(catQ)
-    // category.name.includes(categoryQuery) && 
+import styles from '../../styles/Collection.module.css';
+import CART_IMG from "../../img/сollections/KLASSIK/jackets/Foto.png"
+import SortPanel from './CollectionComponents/SortPanel';
 
-    return (
-        <div>
+import { useState} from 'react';
+import { Link } from "react-router-dom";
+
+import {useSelector} from 'react-redux'
+
+
+
+const CategoryList = ({categoryQuery}) => {
+
+    const products = (useSelector((state) => state.products))
+    const categories = (useSelector((state) => state.categories))
+
+    const selectedCategory = categories.filter(category => category.name.includes(categoryQuery))[0]
+    console.log(selectedCategory)
+
+    // ----- Filter -----
+    const [sortType, setSortType] = useState('date')
+
+    const handleSortChange = (e) => {
+        setSortType(e.target.value)
+    }
+
+
+    return <div>
             {/* --- CategoryName&Sort Panel --- */}
-            <div className={styles.titleContainer}>
-                <p className={styles.type}>{catQ.name}</p>
-
-                {/* --- Sort Button --- */}
-                <div className={styles.btnSort}>
-                    <label htmlFor="sort-select">Сортировать </label>
-                    <select id="sort-select" className={styles.sortSelect}
-                            value={sortType} onChange={handleSortChange}>
-                        <option value="date">По новизне</option>
-                        <option value="price">По цене</option>
-                    </select>
-                </div>
-            </div>
+            <SortPanel selectedCategory={selectedCategory} sortType={sortType} handleSortChange={handleSortChange}/>
 
             {/* --- ProductItem List --- */}
             <div className={styles.container}>
                 {products
-                    .filter(product =>  product.category === catQ.id)
+                    .filter(product =>  product.category === selectedCategory.id)
                     .sort((a, b) => {
                         if (sortType === 'date') {
                         return new Date(b.dateAdded) - new Date(a.dateAdded);
@@ -45,7 +54,7 @@ const CategoryList = () => {
                         </div>})}
             </div>
         </div>
-  )
+
 }
 
 export default CategoryList
