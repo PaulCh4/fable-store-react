@@ -1,13 +1,25 @@
 import {configureStore} from '@reduxjs/toolkit';
-import crudReducer from './CRUDSlice'
+import collectionsReducer from './Slices/collectionsSlice'
+import categoriesReducer from './Slices/categoriesSlice'
+import productsReducer from './Slices/productsSlice'
 
 export default configureStore({
     reducer: {
-        todos: crudReducer,
+        collections: collectionsReducer,
+        categories: categoriesReducer,
+        products: productsReducer,
+
+
+        
         // -- Slices --
-        // user: userReducer
-        // user: userReducer
-        // user: userReducer
+        // products:
+        // ctaegories: 
+        // collections:
+        //
+        // filterState:
+        //
+        // user:
+        // cart:
     }
 
 });

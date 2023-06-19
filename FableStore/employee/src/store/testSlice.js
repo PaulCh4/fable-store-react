@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const crudSlice = createSlice({
+const productsSlice = createSlice({
     name: 'todos',
     initialState: {
         todos: []
@@ -24,4 +24,4 @@ const crudSlice = createSlice({
 
 export const {addTodo, removeTodo, toggleTodoStore} = crudSlice.actions;
 
-export default crudSlice.reducer;
+export default productsSlice.reducer;

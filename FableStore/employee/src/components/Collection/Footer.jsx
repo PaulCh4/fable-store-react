@@ -1,0 +1,1 @@
+//footer - sale - 20%
