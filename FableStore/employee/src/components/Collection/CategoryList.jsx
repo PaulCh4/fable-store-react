@@ -1,7 +1,6 @@
 import React from 'react'
 
 import styles from '../../styles/Collection.module.css';
-import CART_IMG from "../../img/сollections/KLASSIK/jackets/Foto.png"
 import SortPanel from './CollectionComponents/SortPanel';
 
 import { useState} from 'react';
@@ -46,7 +45,7 @@ const CategoryList = ({categoryQuery}) => {
                             {/* --- ProductItem --- */}
                             <div key={product.id} className={styles.cart}>
                                 <Link to={`/product/${product.id}`}>
-                                    <img src={CART_IMG} className={styles.logo} alt="Stuff" />
+                                    <img src={product.image} className={styles.logo} alt="Stuff" />
                                 </Link>
                                 <p>{product.name}</p>
                                 <p>{product.price} $</p>

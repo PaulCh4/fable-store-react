@@ -1,0 +1,26 @@
+.title {
+    font-size: 3.5em;
+    margin: 20px 0 10px 0;
+
+    text-transform: uppercase;
+}
+    .titleContainer {
+        font-size: 1.5em;
+        display: flex;
+        justify-content: space-between;
+    }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, calc(25% - 15px));
+    grid-gap: 20px;
+    justify-content: left;
+}
+    .logo {
+
+        background-color: rgb(230, 228, 226);
+        width: 100%;
+ 
+    }
+
+

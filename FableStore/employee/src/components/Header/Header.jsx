@@ -6,9 +6,13 @@ import LOGO from "../../img/logo_fable.svg"
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const setActive = ({isActive})=>(isActive? styles.active : "")
+
+    const size = useSelector(state => state.cart.size);
+    console.log(size)
 
     return(
         <header className={styles.header}>
@@ -54,8 +58,6 @@ const Header = () => {
                         </div>
                         <div className={styles.dropdown_content_column}>
                             <p>АКСЕССУАРЫ</p>
-                            {/* <a href="#">Link 1</a>
-                            <a href="#">Link 2</a> */}
                         </div>
                         
                     </div>
@@ -70,8 +72,8 @@ const Header = () => {
 
 
             <section className={styles.section}>
-                <NavLink to={"/cart"} className={setActive}>
-                    КОРЗИНА
+                <NavLink to={"/cart"} className={setActive} style={{"minWidth":"89px"}}>
+                    КОРЗИНА { size?`(${size})`:''}
                 </NavLink>
                 <NavLink to={"/login"} className={setActive}>
                     АККАУНТ
