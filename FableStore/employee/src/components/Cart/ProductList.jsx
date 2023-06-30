@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from '../../styles/Collection.module.css';
+import styles from '../../styles/CartProductList.module.css';
 
 import { useDispatch ,useSelector } from 'react-redux';
 import { removeProduct, incrementProduct, decrementProduct } from '../../store/Slices/cartSlice';
@@ -21,11 +21,6 @@ const ProductList = () => {
     dispatch(decrementProduct({id}))
   }
 
-
-  // const getCollection = (product)=> {
-  //   return (useSelector(state => state.collections.filter(product.collections = state.collections.id)) 
-  // )}  
-  // console.log(products)
   const collections = useSelector(state => state.collections) 
 
   const getCollection = (product) => {
@@ -36,32 +31,29 @@ const ProductList = () => {
   return (
       <div>
         {products.map((product) => { 
-          return <div key={product.id} style={{"display": "flex"}}>
-
-            {/* --- ProductItem ---- */}
-            <img src={product.image} className={styles.logo} alt="Stuff" style={{"maxWidth": "30%"}}/>
-            <div>
-              <div>
+          return <div key={product.id} className={styles.container}>
+            <img src={product.image} className={styles.logo} alt="Stuff" />
+            <div className={styles.cardDiscription}>
+              <header>
                 <h1>{product.name}</h1>
                 <p>Коллекция: {getCollection(product)}</p>
-                <p>Артикуль: {product.article} @@@@</p>
-              </div>
-              <div style={{"display": "flex", "gap":"10px"}}>
-                <h1>Размер: <span>{product.size}</span></h1>
-                <h1>Цвет: <span>{product.color}</span></h1>
-                <h1>
+              </header>
+              <section>
+                <h2>Размер: <span>{product.size}</span></h2>
+                <h2>Цвет: <span>{product.color}</span></h2>
+                <h2>
                   Количество:
                   <label htmlFor="">
                     <button onClick={() => DecrementProduct(product.id)}>-</button>
                     <span>{product.counter}</span>
                     <button onClick={() => IncrementProduct(product.id)}>+</button>
                   </label>
-                </h1>
-              </div>
-              <div style={{"display": "flex", "justifyContent": "center"}}>
-                <h1>Цена: <span>{product.price}</span> $</h1>
+                </h2>
+              </section>
+              <footer>
+                <h2>Цена: <span>{product.price}</span> $</h2>
                 <button onClick={() => RemoveProduct(product.id)}>Удалить</button>
-              </div>
+              </footer>
             </div>
           </div>})}    
         </div>

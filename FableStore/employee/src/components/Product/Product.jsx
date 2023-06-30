@@ -10,7 +10,6 @@ import { addProduct } from '../../store/Slices/cartSlice';
 import { Link } from 'react-router-dom';
 
 
-
 const Product = () => {
 
     const {id} = useParams();
@@ -55,6 +54,7 @@ const Product = () => {
         setAddedToCart(true);
       }
 
+      
     return (
         <div>
             <div className='#'>{collectionName} - {categoryName}</div>

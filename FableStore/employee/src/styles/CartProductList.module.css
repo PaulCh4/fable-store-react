@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    padding-left: px;
+}
+    .container h1 {
+        font-size: 1rem;
+    }
+    .container h2 {
+        font-size: 1rem;
+    }
+
+    .container img {
+        background-color: rgb(230, 228, 226);
+        max-width: 138px;
+        height: 146px;
+        flex: 1 1 30%;
+    }
+
+    .cardDiscription {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        flex: 1 1 70%;
+        padding-left: 20px;
+    }
+
+        .cardDiscription header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+            .cardDiscription header h1 {
+                font-weight: bold;
+                font-size: 1rem;
+                margin: 0;
+            }
+            
+            .cardDiscription header p {
+                font-size: 0.8rem;
+                margin-top: 5px;
+                color: gray;
+                margin-left: 0;
+            }
+
+        .cardDiscription section {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+            .cardDiscription section h2 {
+                display: flex;
+                gap: 10px;
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            .cardDiscription section h2 span {
+                display: flex;
+                gap: 10px;
+                font-weight: bold;
+            }
+
+            .cardDiscription section button {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            .cardDiscription section label {
+                display: flex;
+            }
+
+        .cardDiscription footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        }
+        .cardDiscription footer button {
+            border: none;
+            background-color: white;
+            color: gray;
+            font-size: 0.8rem;
+        }
